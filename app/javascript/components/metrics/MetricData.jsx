@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GetData = () => {
+export const GetData = () => {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
     fetch('/api/v1/metrics')
@@ -10,4 +10,12 @@ const GetData = () => {
   return data;
 }
 
-export default GetData;
+export const GetMonthly = () => {
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    fetch('/monthly_average')
+    .then((res) => res.json())
+    .then((data) => setData(data));
+  }, []);
+  return data;
+}

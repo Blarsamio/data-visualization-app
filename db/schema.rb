@@ -21,4 +21,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_100011) do
     t.float "value"
     t.datetime "date"
   end
+
 end
