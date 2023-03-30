@@ -31,7 +31,7 @@ function Chart() {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'La concha de tu prima',
       },
     },
   };
@@ -42,14 +42,9 @@ function Chart() {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: labels.map(() => 1),
+        label: 'Napoleon',
+        data: rawData.map((metric) => metric.avg),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => 1),
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };
