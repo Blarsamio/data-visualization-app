@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 export const GetData = () => {
-  const [data, setData] = React.useState([]);
-  React.useEffect(() => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
     fetch('/api/v1/metrics')
     .then((res) => res.json())
     .then((data) => setData(data));
@@ -10,10 +10,10 @@ export const GetData = () => {
   return data;
 }
 
-export const GetMonthly = () => {
-  const [data, setData] = React.useState([]);
-  React.useEffect(() => {
-    fetch('/monthly_average')
+export const GetFrequency = (freq) => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(`/${freq}_average`)
     .then((res) => res.json())
     .then((data) => setData(data));
   }, []);

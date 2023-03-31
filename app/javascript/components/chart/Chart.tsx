@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,9 +7,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import { GetMonthly } from '../metrics/MetricData'
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { GetFrequency } from "../metrics/MetricData";
 
 ChartJS.register(
   CategoryScale,
@@ -21,30 +21,43 @@ ChartJS.register(
 );
 
 function Chart() {
-  const rawData = GetMonthly();
+  const rawData = GetFrequency("monthly");
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'La concha de tu prima',
+        text: "Sales Averages",
       },
     },
   };
 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   const data = {
     labels,
     datasets: [
       {
-        label: 'Napoleon',
+        label: "Napoleon",
         data: rawData.map((metric) => metric.avg),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: "rgba(239, 68, 68, 0.75)",
       },
     ],
   };
